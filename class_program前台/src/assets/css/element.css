@@ -1,0 +1,83 @@
+.register {
+  position: relative;
+  left    : 20px;
+}
+
+.elFormi {
+  margin-bottom: 2px;
+}
+
+.registerLogin {
+  position: relative;
+  left    : 150px;
+}
+
+.el-input__inner {
+  opacity         : 0.9;
+  background-color: #072778;
+  border          : 1px solid #127EB6;
+}
+
+.el-form-item.is-error .el-input__inner,
+.el-form-item.is-error .el-input__inner:focus,
+.el-form-item.is-error .el-textarea__inner,
+.el-form-item.is-error .el-textarea__inner:focus,
+.el-message-box__input input.invalid,
+.el-message-box__input input.invalid:focus {
+  border: none;
+}
+
+.el-link.el-link--default {
+  color: #127EB6;
+}
+
+/* 消息弹框 */
+.el-dialog {
+  background-color: #072778 !important;
+
+}
+
+.el-dialog__title {
+  font-size  : 18px !important;
+  font-family: led !important;
+  color      : aliceblue !important;
+}
+
+.el-dialog__headerbtn,
+.el-dialog__close,
+.el-dialog__body {
+  color: aliceblue !important;
+}
+
+.el-button+.el-button {
+  margin-left: 30px !important;
+}
+
+/* 路灯样式 */
+.el-table {
+  color      : #10ffff !important;
+  font-family: led;
+  font-size  : 16px !important;
+  font-weight: 600;
+}
+.el-table thead {
+  font-family: led;
+  font-size  : 18px;
+}
+
+.el-table,
+.el-table__expanded-cell {
+  background-color: transparent !important;
+}
+
+.el-table tr {
+  background-color: transparent !important;
+}
+
+.row {
+  border: 1px solid #10ffff !important;
+}
+
+.el-table__body tr:hover>td {
+  background-color: #072778 !important;
+}

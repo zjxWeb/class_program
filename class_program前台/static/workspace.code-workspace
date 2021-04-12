@@ -1,0 +1,30 @@
+{
+	"folders": [
+		{
+			"name": "cx-zhxc-dataview",
+			"path": "..\\..\\..\\English\\cx-zhxc-dataview"
+		},
+		{
+			"name": "vue_shop",
+			"path": "F:\\FeiTianProfile\\项目实战\\vue_shop"
+		},
+		{
+			"path": "..\\..\\..\\English"
+		},
+		{
+			"path": "F:\\FeiTianProfile\\项目实战\\17-21 Vue.js项目实战开发\\20-21vue电商\\3.vue-项目实战day1\\素材\\vue_api_server"
+		},
+		{
+			"path": "G:\\项目备份\\Ant-design-vue"
+		},
+		{
+			"path": "..\\..\\..\\jeecg-boot\\ant-design-vue-jeecg"
+		},
+		{
+			"path": "..\\.."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Login"
+	}
+}
