@@ -53,6 +53,7 @@ export default {
       }
       this.PostAxios('deletetFeedbackMsg',params).then((res)=>{
         if(res.data.flag == 1){
+          this.getListData()
           this.$message.success('该消息已删除')
         }
         else{

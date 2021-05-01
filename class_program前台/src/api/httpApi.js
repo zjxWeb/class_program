@@ -1,5 +1,6 @@
 export default {
   api: {
+    baseSrc : 'http://47.95.1.82:3000',
     weather: '/weather', //天气
     Login: '/login',
     Register: '/register',
@@ -10,12 +11,16 @@ export default {
     //市政消息
     cityMessage: '/cityMessage', //市政消息
     deletetMessage: '/deletetMessage',
+    insertMessage:'/insertMessage',//添加
     //社区消息
     communityMsg: '/communityMsg',
     deletetCommunityMsg: '/deletetCommunityMsg',
+    insertCommunityMsg:"/insertCommunityMsg",
     //市民反馈消息
     feedbackMsg: '/feedbackMsg',
+    insertFeedbackMsg:'/insertFeedbackMsg',
     deletetFeedbackMsg: '/deletetFeedbackMsg',
+ 
     //巴法云http控制灯的开关
     /**
      * 获取你在巴法云创建的主题
@@ -50,5 +55,28 @@ export default {
     deleteLightMsg: '/deleteLightMsg',// 删除 根据id
     editLightMsg:'/editLightMsg',// 根据id 编辑
     isOpenLightMsg:'/isOpenLightMsg',// 修改灯的状态
+    // 排水
+    // light
+    OutWaterMsg: '/OutWaterMsg', // 查询OutWater信息
+    idOutWaterMsg: '/idOutWaterMsg', // 根据id查询OutWater信息
+    // 添加接口
+    /**
+     * 
+     * @param {date:String} req 
+     * @param {name:String} req
+     * @param {local:Number} req
+     * @param {isOPen:Number} req 0关，1开
+     */
+    addOutWaterMsg: '/addOutWaterMsg', // 添加
+    deleteOutWaterMsg: '/deleteOutWaterMsg',// 删除 根据id
+    editOutWaterMsg:'/editOutWaterMsg',// 根据id 编辑
+    isOpenOutWaterMsg:'/isOpenOutWaterMsg',// 修改排水闸门的状态
+
+    // 权限设置
+    jurisdictionMsg:"/jurisdictionMsg",//获取用户信息get
+    idjurisdictionMsg:'/idjurisdictionMsg',//根据id获取信息post
+    deletejurisdictionMsg:"/deletejurisdictionMsg",//删除用户
+    editjurisdictionMsg:'/editjurisdictionMsg',//修改权限
+    editSphoneJurisdiction:'/editSphoneJurisdiction',//根据电话号码获取信息
   }
 }

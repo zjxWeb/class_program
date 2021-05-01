@@ -4,6 +4,8 @@ const router = require('./router/router.js')
 const msg = require('./router/message.js')
 const passport = require('passport');
 const light = require('./router/light.js')
+const outWater = require('./router/outWater.js')
+const jurisdiction = require('./router/jurisdiction')
 const app = new express();
 
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
@@ -42,6 +44,10 @@ app.use(router);
 app.use(msg);
 //路灯路由
 app.use(light);
+// 排水路由
+app.use(outWater);
+// 用户权限管理
+app.use(jurisdiction)
 
 //配置404页面
 app.use(function(req,res,next){

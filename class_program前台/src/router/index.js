@@ -10,6 +10,8 @@ import Light from '../views/content/Light/light.vue'
 import outWater from '../views/content/outWater/out_water.vue'
 import Traffic from '../views/content/Traffic/traffic.vue'
 import editMessage from '../views/editMessage.vue'
+import Message from '../views/home/message.vue'
+import jurisdiction from '../views/home/jurisdiction.vue'
 Vue.use(VueRouter)
 
 const routes = [{
@@ -25,7 +27,17 @@ const routes = [{
   {
     path: '/home',
     name: 'Home',
-    component: Home
+    component: Home,
+  },
+  {
+    path: '/message',
+    name: 'message',
+    component: Message,
+  },
+  {
+    path: '/jurisdiction',
+    name: 'jurisdiction',
+    component: jurisdiction,
   },
   {
     path: '/face',

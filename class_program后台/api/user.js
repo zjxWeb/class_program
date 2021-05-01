@@ -45,6 +45,7 @@ exports.register = (req,res) => {
         'Sname':req.body.Sname,
         'Spassword':tools.enbcrypt(req.body.Spassword),
         'tpassword':tools.enbcrypt(req.body.tpassword),
+        'jurisdiction':req.body.jurisdiction
         // "code":req.body.code
     }
     if(req.body.Spassword == req.body.tpassword){
@@ -76,7 +77,7 @@ exports.login = (req,res)=>{
         "Sphone":req.body.Sphone,
         "Spassword":req.body.Spassword,
     }
-    console.log(tools.enbcrypt('0vlMpXN2QeoIIH0EnneAEvLu').toLocaleUpperCase())
+    // console.log(tools.enbcrypt('0vlMpXN2QeoIIH0EnneAEvLu').toLocaleUpperCase())
     // console.log(tools.enbcrypt(e274cd25440040abbc6f4396b3ac9d21))
     let sql = `select * from username where Sphone=${respone.Sphone}`;
     db.base(sql,null,(result)=>{

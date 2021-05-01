@@ -44,7 +44,7 @@ export default {
   text-align: center;
   background-image: url(~@/assets/img/home/title.png);
   background-repeat: no-repeat;
-  background-color: 100vw auto;
+  background-size: 100vw auto;
   position: relative;
   top: -0.6vh;
 }

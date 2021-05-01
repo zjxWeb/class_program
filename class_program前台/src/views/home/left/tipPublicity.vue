@@ -54,6 +54,7 @@ export default {
       }
       this.PostAxios('deletetMessage',params).then((res)=>{
         if(res.data.flag == 1){
+          this.getListData()
           this.$message.success('该消息已删除')
         }
         else{
@@ -67,6 +68,9 @@ export default {
       this.GetAxios("cityMessage").then((res) => {
         if (res.data.status == "000000") {
           this.listData = res.data.result;
+        }
+        else{
+        this.$message.error('请稍后再试')
         }
       });
     },

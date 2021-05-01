@@ -88,6 +88,7 @@ export default {
         // eslint-disable-next-line
         if (!valid) return;
         this.PostAxios("Login", this.loginForm).then((res)=>{
+          console.log(res.data)
         if (res.data.flag != 1) {
           return this.$message.error("登录失败");
         } else {
@@ -96,6 +97,7 @@ export default {
           // 1.1 项目中出现了登录之外的其他API接口，必须的登录之后才能访问
           // 1.2 token只应在当前网站打开期间生效，所以将token 保存到sessionStorage中
           window.sessionStorage.setItem("token", res.data.token);
+          window.sessionStorage.setItem("Sphone",this.loginForm.Sphone);
           // 2. 通过编程式导航跳转到后台主页，路由地址是 /home
           this.$router.push("/home");
         }

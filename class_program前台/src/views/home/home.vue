@@ -5,6 +5,20 @@
         智&nbsp;&nbsp;慧&nbsp;&nbsp;市&nbsp;&nbsp;政&nbsp;&nbsp;平&nbsp;&nbsp;台
       </p>
     </div>
+    <div v-if="jurisdiction == '管理员'">
+      <el-button
+        class="mesg"
+        type="primary"
+        @click="$router.push('/message'), $router.go(0)"
+        >消息管理</el-button
+      >
+      <el-button
+        class="mesg1"
+        type="primary"
+        @click="$router.push('/jurisdiction'), $router.go(0)"
+        >权限管理</el-button
+      >
+    </div>
     <img
       class="back"
       @click="loginOut()"
@@ -23,7 +37,10 @@
         <span>市政要闻消息</span>
         <img src="@/assets/img/home/left_one.png" alt="" />
         <div class="l_left">
-          <TipPublicity  v-bind:isDelde='isDelde' @message="getMessage" ></TipPublicity>
+          <TipPublicity
+            v-bind:isDelde="isDelde"
+            @message="getMessage"
+          ></TipPublicity>
         </div>
         <div class="l_right"></div>
         <img src="@/assets/img/home/kuang_bottom.png" alt="" />
@@ -32,26 +49,28 @@
         <span>社区活动消息</span>
         <img src="@/assets/img/home/left_one.png" alt="" />
         <div class="hot_point">
-          <HotPoint v-bind:isDeldec='isDeldec' @message="getMessage"/>
+          <HotPoint v-bind:isDeldec="isDeldec" @message="getMessage" />
         </div>
         <img src="@/assets/img/home/kuang_bottom.png" alt="" />
       </div>
     </div>
     <el-dialog
-        :title='msgFormSon.name'
-        v-if="msgFormSon"
-        :visible.sync="msgFormSon.ishowmessage"
-        width="30%"
-        center
-      >
-        <span>{{msgFormSon.index}}. &nbsp;&nbsp;{{msgFormSon.title}}</span>
-        <span slot="footer" class="dialog-footer">
-          <el-button @click="msgFormSon.ishowmessage = false">取 消</el-button>
-          <el-button type="primary" @click="msgFormSon.ishowmessage = false,isDeldemeg()"
-            >确 定</el-button
-          >
-        </span>
-      </el-dialog>
+      :title="msgFormSon.name"
+      v-if="msgFormSon"
+      :visible.sync="msgFormSon.ishowmessage"
+      width="30%"
+      center
+    >
+      <span>{{ msgFormSon.index }}. &nbsp;&nbsp;{{ msgFormSon.title }}</span>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="msgFormSon.ishowmessage = false">取 消</el-button>
+        <el-button
+          type="primary"
+          @click="(msgFormSon.ishowmessage = false), isDeldemeg()"
+          >确 定</el-button
+        >
+      </span>
+    </el-dialog>
     <div class="centre">
       <span class="clock" id="clock">
         <!-- {{date.year+'-'+ date.month+'-'+ date.day+ '&nbsp;&nbsp;&nbsp;'+ date.hour+':'+ date.min+':'+ date.sec}} -->
@@ -122,7 +141,7 @@
       <div class="tipPublicity">
         <span>市民反馈消息</span>
         <img src="@/assets/img/home/left_one.png" alt="" />
-        <TipPublicity1 v-bind:isDeldeF='isDeldeF' @message="getMessage" />
+        <TipPublicity1 v-bind:isDeldeF="isDeldeF" @message="getMessage" />
         <img src="@/assets/img/home/kuang_bottom.png" alt="" />
       </div>
       <div class="equipmentAnalysis">
@@ -156,9 +175,10 @@ export default {
   },
   data() {
     return {
-      isDelde:false,
-      isDeldec:false,
-      isDeldeF:false,
+      jurisdiction: null,
+      isDelde: false,
+      isDeldec: false,
+      isDeldeF: false,
       flag: false,
       msgFormSon: null,
       banner: [
@@ -197,6 +217,7 @@ export default {
     };
   },
   mounted() {
+    this.geteditSphoneJurisdiction();
     window.onresize = function () {
       location.reload();
     };
@@ -238,26 +259,38 @@ export default {
     }
   },
   methods: {
-    isDeldemeg(){
-      switch(this.msgFormSon.name){
-        case '市政要闻消息通知':
-          this.isDelde = !(this.isDelde);
+    isDeldemeg() {
+      switch (this.msgFormSon.name) {
+        case "市政要闻消息通知":
+          this.isDelde = !this.isDelde;
           break;
-        case '社区活动消息通知':
-           this.isDeldec = !(this.isDeldec);
-           break;
-        case '市民反馈消息通知':
-          this.isDeldeF = !(this.isDeldeF);
-           break;
+        case "社区活动消息通知":
+          this.isDeldec = !this.isDeldec;
+          break;
+        case "市民反馈消息通知":
+          this.isDeldeF = !this.isDeldeF;
+          break;
         default:
           break;
-
       }
-      console.log(this.msgFormSon.name)
+      // console.log(this.msgFormSon.name);
     },
     getMessage(data) {
       this.msgFormSon = data;
-      console.log(this.msgFormSon);
+      // console.log(this.msgFormSon);
+    },
+    // 消息按钮的权限控制
+    geteditSphoneJurisdiction() {
+      let params = {
+        Sphone: window.sessionStorage.getItem("Sphone"),
+      };
+      console.log(params);
+      this.PostJsonAxios("editSphoneJurisdiction", params).then((res) => {
+        if (res.data.status == "000000") {
+          // console.log(res.data.result[0].jurisdiction);
+          this.jurisdiction = res.data.result[0].jurisdiction;
+        }
+      });
     },
     homeRouter(url) {
       this.$router.push(url);
@@ -343,7 +376,7 @@ export default {
   text-align: center;
   background-image: url(~@/assets/img/home/title.png);
   background-repeat: no-repeat;
-  background-color: 100vw auto;
+  background-size: 100vw auto;
   position: relative;
   top: -0.6vh;
 }
@@ -577,12 +610,12 @@ export default {
   text-align: center;
 }
 .mainFont p {
-  display: inline-block;
+  display: block;
   color: white;
   font-size: 20px;
   font-weight: 800;
   position: relative;
-  top: 12vh;
+  top: 11.5vh;
 }
 .mainFont img {
   width: 8vw;
@@ -628,5 +661,23 @@ export default {
   font-family: led;
   font-size: 6.5rem;
   color: #10ffff;
+}
+.mesg {
+  font-family: led;
+  cursor: pointer;
+  z-index: 100;
+  float: left;
+  position: fixed;
+  top: 1.5vh;
+  left: 0.5vw;
+}
+.mesg1 {
+  font-family: led;
+  cursor: pointer;
+  z-index: 100;
+  float: left;
+  position: fixed;
+  top: 1.5vh;
+  left: 5vw;
 }
 </style>

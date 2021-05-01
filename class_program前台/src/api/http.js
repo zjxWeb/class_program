@@ -1,10 +1,9 @@
 import axios from 'axios'
 import qs from 'qs'
 import httpApi from './httpApi.js'
-const baseSrc = 'http://localhost:3000'
 // const baseSrc = ""
 function setUrl(src) {
-  let url =  baseSrc + httpApi.api[src]
+  let url = httpApi.api.baseSrc + httpApi.api[src]
   return  encodeURI(url)
 }
 
@@ -154,7 +153,6 @@ export default {
 
   }
 }
-
 
 
 /* 请求拦截器 */

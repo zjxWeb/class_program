@@ -77,7 +77,6 @@ export default {
         Sphone: "",
         Spassword: "",
         tpassword:'',
-        Stare
       },
       // 表单的验证规则对象
       loginFormRules: {

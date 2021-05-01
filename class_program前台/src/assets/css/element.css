@@ -26,6 +26,9 @@
 .el-message-box__input input.invalid:focus {
   border: none;
 }
+/* .el-form-item{
+  margin-bottom: 5px !important;
+} */
 
 .el-link.el-link--default {
   color: #127EB6;

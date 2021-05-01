@@ -71,7 +71,7 @@
       ></el-table-column>
       <el-table-column prop="name" label="姓名(id)" width="150" align="center">
         <template slot-scope="scope">
-          {{ scope.row.name }}&nbsp;&nbsp;=[ {{ scope.row.id }} ]
+          {{ scope.row.name }}&nbsp;&nbsp;[ {{ scope.row.id }} ]
         </template>
       </el-table-column>
       <el-table-column prop="local" label="地址" align="center">
@@ -146,6 +146,7 @@ export default {
     },
     addchangeLight() {
       this.changeButton = 0;
+      this.form = {}
     },
     change(id, isOPen) {
       console.log(12);
@@ -237,7 +238,7 @@ export default {
   text-align: center;
   background-image: url(~@/assets/img/home/title.png);
   background-repeat: no-repeat;
-  background-color: 100vw auto;
+  background-size: 100vw auto;
   position: relative;
   top: -0.6vh;
 }

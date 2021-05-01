@@ -5,6 +5,7 @@ import store from './store'
 import ElementUI from 'element-ui'
 import http from '../src/api/http.js'
 import rightMenu from "rightmenu"
+import httpApi from './api/httpApi'
 // 漂浮的小星星
 import particles from 'particles.js'
 
@@ -37,7 +38,7 @@ Es6Promise.polyfill()
 window.$cookies.config('6000s')
 
 // 配置请求的根路径
-axios.defaults.baseURL = 'http://localhost:3000/'
+axios.defaults.baseURL = httpApi.api.baseSrc
 axios.interceptors.request.use(config => {
   config.headers.Authorization = window.sessionStorage.getItem('token')
   // 在最后必须return config
