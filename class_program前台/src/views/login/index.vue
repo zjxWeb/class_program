@@ -90,7 +90,7 @@ export default {
         this.PostAxios("Login", this.loginForm).then((res)=>{
           console.log(res.data)
         if (res.data.flag != 1) {
-          return this.$message.error("登录失败");
+          return this.$message.error(res.data.msg);
         } else {
           this.$message.success("登陆成功");
           // 1. 将登录成功之后的Token，保存到客户端的 sessionStorage中

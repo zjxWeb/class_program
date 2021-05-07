@@ -120,7 +120,7 @@ export default {
           this.$message.success(res.data.msg);
           this.$router.push("/");
         } else {
-          this.$message.error();("注册失败");
+          this.$message.error(res.data.meg);
         }
         })
       });
